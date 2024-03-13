@@ -10,7 +10,11 @@ var groupAnagrams = function(strs) {
         
         const anagramGroups = strs[i].split("").sort().join("");
         
-       obj[anagramGroups] ? obj[anagramGroups].push(strs[i]) : obj[anagramGroups] = [strs[i]];
+       if(obj[anagramGroups]){
+        obj[anagramGroups].push(strs[i])
+       } else{
+        obj[anagramGroups] = [strs[i]];
+       } 
     }
     return Object.values(obj)
 };
